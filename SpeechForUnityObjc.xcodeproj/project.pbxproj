@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0785FF260E3CD000A97AF7 /* SpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0785FE260E3CD000A97AF7 /* SpeechSynthesizer.m */; };
+		FA078603260E431100A97AF7 /* Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA078602260E431100A97AF7 /* Bridge.mm */; };
 		FAA9C890260E38920083C94A /* SpeechForUnityObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = FAA9C88E260E38920083C94A /* SpeechForUnityObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAA9C899260E38AA0083C94A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA9C898260E38AA0083C94A /* AVFoundation.framework */; };
+		FAA9C8A2260E394C0083C94A /* SpeechSynthesizer.h in Headers */ = {isa = PBXBuildFile; fileRef = FAA9C8A1260E394C0083C94A /* SpeechSynthesizer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0785FE260E3CD000A97AF7 /* SpeechSynthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechSynthesizer.m; sourceTree = "<group>"; };
+		FA078601260E42F800A97AF7 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		FA078602260E431100A97AF7 /* Bridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Bridge.mm; sourceTree = "<group>"; };
 		FAA9C88B260E38920083C94A /* SpeechForUnityObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpeechForUnityObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA9C88E260E38920083C94A /* SpeechForUnityObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechForUnityObjc.h; sourceTree = "<group>"; };
 		FAA9C88F260E38920083C94A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA9C898260E38AA0083C94A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FAA9C8A1260E394C0083C94A /* SpeechSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechSynthesizer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA9C899260E38AA0083C94A /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +42,7 @@
 			children = (
 				FAA9C88D260E38920083C94A /* SpeechForUnityObjc */,
 				FAA9C88C260E38920083C94A /* Products */,
+				FAA9C897260E38AA0083C94A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -48,8 +59,20 @@
 			children = (
 				FAA9C88E260E38920083C94A /* SpeechForUnityObjc.h */,
 				FAA9C88F260E38920083C94A /* Info.plist */,
+				FAA9C8A1260E394C0083C94A /* SpeechSynthesizer.h */,
+				FA0785FE260E3CD000A97AF7 /* SpeechSynthesizer.m */,
+				FA078601260E42F800A97AF7 /* Bridge.h */,
+				FA078602260E431100A97AF7 /* Bridge.mm */,
 			);
 			path = SpeechForUnityObjc;
+			sourceTree = "<group>";
+		};
+		FAA9C897260E38AA0083C94A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAA9C898260E38AA0083C94A /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -60,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA9C890260E38920083C94A /* SpeechForUnityObjc.h in Headers */,
+				FAA9C8A2260E394C0083C94A /* SpeechSynthesizer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA078603260E431100A97AF7 /* Bridge.mm in Sources */,
+				FA0785FF260E3CD000A97AF7 /* SpeechSynthesizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +299,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cadmean.SpeechForUnityObjc;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -296,6 +323,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cadmean.SpeechForUnityObjc;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

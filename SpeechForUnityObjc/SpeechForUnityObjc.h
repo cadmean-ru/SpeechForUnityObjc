@@ -15,4 +15,4 @@ FOUNDATION_EXPORT const unsigned char SpeechForUnityObjcVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SpeechForUnityObjc/PublicHeader.h>
 
-
+#import <SpeechForUnityObjc/Bridge.h>
