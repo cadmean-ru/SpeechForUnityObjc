@@ -32,4 +32,8 @@ extern "C" {
     void _stopSpeaking() {
         [[SpeechSynthesizer getInstance] stopSpeaking];
     }
+
+    void _setEventHandler(int code, SpeechSynthesizerDelegate delegate) {
+        [[SpeechSynthesizer getInstance] setEventHandlerForCode:code handler:delegate];
+    }
 }

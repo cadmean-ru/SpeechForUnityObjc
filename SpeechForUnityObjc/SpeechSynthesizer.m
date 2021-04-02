@@ -13,6 +13,12 @@ AVSpeechSynthesizer* synthesizer;
 static SpeechSynthesizer* instance;
 bool speaking;
 
+SpeechSynthesizerDelegate speakingStartedDelegate;
+SpeechSynthesizerDelegate speakingFinishedDelegate;
+SpeechSynthesizerDelegate speakingPausedDelegate;
+SpeechSynthesizerDelegate speakingResumedDelegate;
+SpeechSynthesizerDelegate speakingCancelledDelegate;
+
 
 - (id) init {
     self = [super init];
@@ -40,29 +46,51 @@ bool speaking;
     return speaking;
 }
 
+- (void) setEventHandlerForCode:(int)code handler:(SpeechSynthesizerDelegate)h {
+    switch (code) {
+        case 0:
+            speakingStartedDelegate = h;
+            break;
+        case 1:
+            speakingPausedDelegate = h;
+            break;
+        case 2:
+            speakingResumedDelegate = h;
+            break;
+        case 3:
+            speakingCancelledDelegate = h;
+            break;
+        case 4:
+            speakingFinishedDelegate = h;
+            break;
+        default:
+            break;
+    }
+}
+
 
 - (void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance {
-    printf("Speech started");
+    invokeDelegate(speakingStartedDelegate);
     speaking = true;
 }
 
 - (void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance *)utterance {
-    printf("Speech paused");
+    invokeDelegate(speakingPausedDelegate);
     speaking = false;
 }
 
 - (void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance *)utterance {
-    printf("Speech continued");
+    invokeDelegate(speakingResumedDelegate);
     speaking = true;
 }
 
 - (void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance {
-    printf("Speech cancelled");
+    invokeDelegate(speakingCancelledDelegate);
     speaking = false;
 }
 
 - (void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
-    printf("Speech finished");
+    invokeDelegate(speakingFinishedDelegate);
     speaking = false;
 }
 
@@ -73,6 +101,13 @@ bool speaking;
     }
     
     return instance;
+}
+
+
+void invokeDelegate(SpeechSynthesizerDelegate delegate) {
+    if (delegate != NULL) {
+        delegate();
+    }
 }
 
 @end

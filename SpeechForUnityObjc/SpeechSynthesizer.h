@@ -11,6 +11,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+typedef void (*SpeechSynthesizerDelegate)(void);
+
 @interface SpeechSynthesizer : NSObject <AVSpeechSynthesizerDelegate>
 
 - (id) init;
@@ -20,6 +22,8 @@
 - (bool) isNowSpeaking;
 
 - (void) stopSpeaking;
+
+- (void) setEventHandlerForCode:(int)code handler:(SpeechSynthesizerDelegate)h;
 
 + (SpeechSynthesizer*) getInstance;
 

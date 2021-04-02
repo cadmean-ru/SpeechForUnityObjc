@@ -14,6 +14,7 @@ extern "C" {
     void _speakText(char* text, char* lang, float rate);
     bool _isNowSpeaking();
     void _stopSpeaking();
+    void _setEventHandler(int code, SpeechSynthesizerDelegate delegate);
 }
 
 #endif /* Bridge_h */
